@@ -24,7 +24,6 @@ function App() {
         <Profile />
       </Route>
     </BrowserRouter>
-
   );
 }
 
