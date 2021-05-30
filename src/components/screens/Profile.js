@@ -13,7 +13,7 @@ const Profile = () => {
                     <img style={{width:"160px",height:"160px",borderRadius:"80%"}}
                         src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXNpYW58ZW58MHwyfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"/>
                 </div>
-                <div style={{margin:'5px'}}>
+                <div style={{margin:'15px'}}>
                     <h4>Chinch Duk</h4>
                     <div style={{display:'flex',justifyContent:'space-between',width:"108%"}}>
                         <h6>posts</h6>
