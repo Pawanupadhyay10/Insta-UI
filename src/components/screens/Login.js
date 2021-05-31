@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link,useHistory } from 'react-router-dom' // we are importing this as it is fast and it replace <a href ="">
-import { Materialbox } from 'materialize-css'
+import M  from 'materialize-css'
 const Login = () => {
     const history=useHistory()
     const[passward,setPassward]=useState("")
