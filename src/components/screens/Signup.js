@@ -1,8 +1,10 @@
-import React,{useState} from 'react'
-import { Link,useHistory } from 'react-router-dom' // we are importing this as it is fast and it replace <a href ="">
-import M  from 'materialize-css'
-const Login = () => {
+import React,{useState}from 'react'
+import { Link ,useHistory} from 'react-router-dom'
+import M from 'materialize-css'
+
+const Signup = () => {
     const history=useHistory()
+    const[name,setName]=useState("")
     const[passward,setPassward]=useState("")
     const[email,setEmail]=useState("")
     const PostData=()=>{
@@ -10,24 +12,24 @@ const Login = () => {
            M.toast({html:"invalid email",classes:"#c62828 red darken-3"})
            return 
         }
-        fetch("/signin",{//we are using signin because in server we have written the same 
+        fetch("http://localhost:5000/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
+                name,
                 passward,
                 email
             })
         }).then(res=>res.json())
         .then(data=>{
-            console.log(data)
             if(data.error){
                 M.toast({html:data.error,classes:"#c62828 red darken-2"})
             }
             else{
-                M.toast({html:"Successfully SignedIn",classes:"#43a047 green darken-1"})
-                history.push('/')
+                M.toast({html:data.message,classes:"#43a047 green darken-1"})
+                history.push('/login')
             }
         }).catch(err=>{
             console.log(err)
@@ -36,21 +38,25 @@ const Login = () => {
 
     return (
         <div className="Mycard">
-            <div className="card auth-card input-field">
-               <h2>Instagram</h2>
-               <input type="text" placeholder="email" 
+            <div className="card auth-card">
+                <h2>Instagram</h2>
+                <input type="text" placeholder="username" 
+                value={name}
+                onChange={(e)=>setName(e.target.value)}/>
+                <input type="text" placeholder="email" 
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}/>
                 <input type="text" placeholder="passward" 
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
-                <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1" onClick={()=>PostData()}>
-                    Login
+                <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1"
+                onClick={()=>PostData()}>
+                    SignUp
                 </button>
-                <h5><Link to="/signup">Don't have an account Signup please?</Link></h5>
+                <h5><Link to="/login">Already have an account Login please?</Link></h5>
             </div>
         </div>
     )
 }
 
-export default Login
+export default Signup
