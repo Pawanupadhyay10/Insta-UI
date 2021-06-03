@@ -1,8 +1,8 @@
 import React,{useState}from 'react'
 import { Link ,useHistory} from 'react-router-dom'
-import M from 'materialize-css'
+import M from 'materialize-css'             
 
-const Signup = () => {
+const SignUp = () => {
     const history=useHistory()
     const[name,setName]=useState("")
     const[passward,setPassward]=useState("")
@@ -12,7 +12,7 @@ const Signup = () => {
            M.toast({html:"invalid email",classes:"#c62828 red darken-3"})
            return 
         }
-        fetch("http://localhost:5000/signup",{
+        fetch("/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
@@ -28,7 +28,7 @@ const Signup = () => {
                 M.toast({html:data.error,classes:"#c62828 red darken-2"})
             }
             else{
-                M.toast({html:data.message,classes:"#43a047 green darken-1"})
+                M.toast({html:data.msg,classes:"#43a047 green darken-1"})
                 history.push('/login')
             }
         }).catch(err=>{
@@ -46,7 +46,7 @@ const Signup = () => {
                 <input type="text" placeholder="email" 
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}/>
-                <input type="text" placeholder="passward" 
+                <input type="text" placeholder="password" 
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1"
@@ -59,4 +59,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignUp

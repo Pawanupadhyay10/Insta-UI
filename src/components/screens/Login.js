@@ -10,7 +10,7 @@ const Login = () => {
            M.toast({html:"invalid email",classes:"#c62828 red darken-3"})
            return 
         }
-        fetch("/signin",{//we are using signin because in server we have written the same 
+        fetch("/login",{//we are using signin because in server we have written the same 
             method:"post",
             headers:{
                 "Content-Type":"application/json"
