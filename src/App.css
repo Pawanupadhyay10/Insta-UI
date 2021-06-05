@@ -33,3 +33,6 @@ font-family: 'Grand Hotel', cursive;
   margin:26px auto ;
 
 }
+.brand-logo:hover{
+  text-shadow:2px 2px 4px #464A4A;
+}

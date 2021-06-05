@@ -12,7 +12,7 @@ const Signup = () => {
            M.toast({html:"invalid email",classes:"#c62828 red darken-3"})
            return 
         }
-        fetch("http://localhost:5000/signup",{
+        fetch("/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
@@ -28,7 +28,7 @@ const Signup = () => {
                 M.toast({html:data.error,classes:"#c62828 red darken-2"})
             }
             else{
-                M.toast({html:data.message,classes:"#43a047 green darken-1"})
+                M.toast({html:data.msg,classes:"#43a047 green darken-1"})
                 history.push('/login')
             }
         }).catch(err=>{
