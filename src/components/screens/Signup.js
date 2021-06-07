@@ -1,8 +1,8 @@
 import React,{useState}from 'react'
 import { Link ,useHistory} from 'react-router-dom'
-import M from 'materialize-css'
+import M from 'materialize-css'             
 
-const Signup = () => {
+const SignUp = () => {
     const history=useHistory()
     const[name,setName]=useState("")
     const[passward,setPassward]=useState("")
@@ -47,6 +47,9 @@ const Signup = () => {
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}/>
                 <input type="password" placeholder="password" 
+// =======
+//                 <input type="text" placeholder="password" 
+// >>>>>>> master
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1"
@@ -59,4 +62,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignUp

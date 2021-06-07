@@ -40,19 +40,23 @@ const Routing=()=>{
       <Route path="/create">
         <CreatePost />
       </Route>
-    </Switch>
-  )
-}
+// <<<<<<< user
+//     </Switch>
+//   )
+// }
 
-function App() {
-  const[state,dispatch]=useReducer(reducer,initialState)
-  return (
-    <UserContext.Provider value={{state,dispatch}}>
-    <BrowserRouter>
-      <Navbar />   
-      <Routing/>
-    </BrowserRouter>
-    </UserContext.Provider>
+// function App() {
+//   const[state,dispatch]=useReducer(reducer,initialState)
+//   return (
+//     <UserContext.Provider value={{state,dispatch}}>
+//     <BrowserRouter>
+//       <Navbar />   
+//       <Routing/>
+//     </BrowserRouter>
+//     </UserContext.Provider>
+// =======
+//     </BrowserRouter>
+// >>>>>>> master
   );
 }
 
