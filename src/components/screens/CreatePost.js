@@ -6,16 +6,16 @@ const CreatePost=()=>{
     const history=useHistory()
     const [title,setTitle]=useState("")
     const [body,setBody]=useState("")
-    const [Image,setImage]=useState("") 
+    const [image,setImage]=useState("") 
     const [url,setUrl]=useState("") 
-    useEffect(()=>
+    useEffect(()=>           //this method will be called when the pic is uploaded on the cloud 
     {
         if(url){
         fetch("/createpost",{//we are using signin because in server we have written the same 
             method:"post",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":"Bearer "+localStorage.getItem("jwt")
+                "Authorization":"Bearer"+localStorage.getItem("jwt")
             },
             body:JSON.stringify({
                 title,
@@ -38,9 +38,11 @@ const CreatePost=()=>{
     }
 
     },[url])
+
     const postDetails=()=>{
         const data=new FormData()
-        data.append("file",Image)
+        data.append("file",image)
+        data.append("upload_preset","Insta-clone")
         data.append("cloud name","amrita1")
         fetch("	https://api.cloudinary.com/v1_1/amrita1/image/upload",{
             method:"post",

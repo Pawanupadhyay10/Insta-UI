@@ -46,7 +46,7 @@ const Signup = () => {
                 <input type="text" placeholder="email" 
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}/>
-                <input type="text" placeholder="passward" 
+                <input type="password" placeholder="password" 
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1"
