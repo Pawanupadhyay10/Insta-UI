@@ -3,8 +3,9 @@ a{
   color:black !important;
 }
    
-.brand-logo,h2{
+.brand-logo:hover,h2{
 font-family: 'Grand Hotel', cursive;
+   text-shadow:2px 2px 4px #464A4A;
 }
 .auth-card{
   padding: 20px;
@@ -26,13 +27,15 @@ font-family: 'Grand Hotel', cursive;
   border-bottom: 1px solid rgb(8, 93, 252)!important;
   box-shadow: 0 1px 0 0 rgb(8, 93, 252) !important;
 }
+/*label underline focus color*/
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid rgb(8, 93, 252)!important;
+  box-shadow: 0 1px 0 0 rgb(8, 93, 252) !important;
+}
 /*home page*/
 .home-card{
   max-width: 500px;
   height: max-content;
    margin: 26px auto;
 }
-
-
-
 
