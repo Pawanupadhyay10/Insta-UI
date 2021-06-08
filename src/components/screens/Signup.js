@@ -47,9 +47,6 @@ const SignUp = () => {
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}/>
                 <input type="password" placeholder="password" 
-// =======
-//                 <input type="text" placeholder="password" 
-// >>>>>>> master
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1"

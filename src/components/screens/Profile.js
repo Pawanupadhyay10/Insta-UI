@@ -7,13 +7,13 @@ const Profile = () => {
     useEffect(()=>{
         fetch('/mypost',{
             headers:{
-            "Authorization":"Bearer"+localStorage.getItem("jwt")
+                "Authorization":"Bearer"+localStorage.getItem("jwt")
             }
         }).then(res=>res.json())
         .then(result=>{
-            setPics(result.mypost)
+            //  console.log(result)
+         setPics(result.mypost)
         })
-    
     },[])
     return (
         <div style={{maxWidth:'550px',margin:"0px auto"}}>
@@ -37,8 +37,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className="gallery">
-                    {
-                        mypics.map(item=>{
+                    {mypics.map(item=>{
                             return(
                              <img key={item._id} className="item" src={item.photo} alt={item.title}/>
                             )
