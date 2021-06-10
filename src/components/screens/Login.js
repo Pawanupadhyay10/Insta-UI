@@ -57,7 +57,6 @@ const Login = () => {
                 onChange={(e)=>setPassward(e.target.value)}/>
                  
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1" onClick={()=>PostData()}>
-                    
                  Login
                 </button>
                

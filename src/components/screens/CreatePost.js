@@ -55,63 +55,6 @@ const CreatePost = () => {
             .catch(err => {
                 console.log(err)
             })
-
-        // =======
-        // import React ,{ useState, useEffect } from 'react'
-        // import M from 'materialize-css'
-        // import { useHistory } from 'react-router-dom'
-
-        // const CreatePost=()=>{
-        //     const history = useHistory()
-        //     const [title, setTitle] = useState("")
-        //     const [body, setBody] = useState("")
-        //     const [Image, setImage] = useState("")
-        //     const [url, setUrl] = useState("")
-        //     useEffect(() => {
-        //         if (url) {
-        //             fetch("/createpost", {//we are using signin because in server we have written the same 
-        //                 method: "post",
-        //                 headers: {
-        //                     "Content-Type": "application/json",
-        //                     "Authorization":"Bearer"+localStorage.getItem("jwt")
-        //                 },
-        //                 body:JSON.stringify({
-        //                     title,
-        //                     body,
-        //                     pic:url
-        //                 })
-        //             }).then(res=>res.json())
-        //                 .then(data => {
-        //                     console.log(data)
-        //                     if (data.error) {
-        //                         M.toast({html:data.error,classes:"#c62828 red darken-2"})
-        //                     }
-        //                     else {
-        //                         M.toast({ html: "Created Post Successfully ", classes: "#43a047 green darken-1" })
-        //                         history.push('/')
-        //                     }
-        //                 }).catch(err => {
-        //                     console.log(err)
-        //                 })
-        //         }
-        //     }, [url])
-        //     const postDetails = () => {
-        //         const data = new FormData()
-        //         data.append("file", Image)
-        //         data.append("upload_preset", "insta-clone")
-        //         data.append("cloud name", "panni")
-        //         fetch("	https://api.cloudinary.com/v1_1/panni/image/upload", {
-        //             method: "post",
-        //             body: data
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 setUrl(data.url)
-        //             })
-        //             .catch(err => {
-        //                 console.log(err)
-        //             })
-        // >>>>>>> master
     }
     return (
         <div className="card input-filled"

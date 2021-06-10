@@ -3,9 +3,11 @@ a{
   color:black !important;
 }
    
-.brand-logo:hover,h2{
+.brand-logo,h2{
 font-family: 'Grand Hotel', cursive;
-   text-shadow:2px 2px 4px #464A4A;
+}
+.brand-logo:hover{
+ text-shadow:2px 2px 4px #464A4A;
 }
 .auth-card{
   padding: 20px;
@@ -38,4 +40,6 @@ font-family: 'Grand Hotel', cursive;
   height: max-content;
    margin: 26px auto;
 }
-
+.material-icons{
+  cursor: pointer;
+}

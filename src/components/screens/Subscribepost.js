@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../../App'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Home = () => {
     const [data, setData] = useState([])
-    const { state, dispatch } = useContext(UserContext)     
+    const { state, dispatch } = useContext(UserContext)
     useEffect(() => {
-        fetch('/allpost', {
+        fetch('/getsubpost', {
             headers: {
                 "Authorization": "Bearer" + localStorage.getItem("jwt")
             }
@@ -59,7 +59,7 @@ const Home = () => {
                 console.log(err)
             })
     }
-    const makeComment = (text,postId) => {
+    const makeComment = (text, postId) => {
         fetch('/comment', {
             method: "put",
             headers: {
@@ -82,19 +82,19 @@ const Home = () => {
                 console.log(err)
             })
     }
-    const deletePost =(postid)=>{
-        fetch(`/deletepost/${postid}`,{
+    const deletePost = (postid) => {
+        fetch(`/deletepost/${postid}`, {
             method: "delete",
             headers: {
-                "Authorization":"Bearer" + localStorage.getItem("jwt")
+                "Authorization": "Bearer" + localStorage.getItem("jwt")
             }
-            }).then(res => res.json())
-            .then(result=>{
-            //    console.log(result)
-               const newData=data.filter(item=>{
-                   return item._id !==result._id
-               })
-               setData(newData)
+        }).then(res => res.json())
+            .then(result => {
+                //    console.log(result)
+                const newData = data.filter(item => {
+                    return item._id !== result._id
+                })
+                setData(newData)
             })
     }
     return (
@@ -103,9 +103,9 @@ const Home = () => {
                 data.map(item => {
                     return (
                         <div className="card home-card" key={item._id}>
-                            <h5 style={{ padding: "6px" }}><Link to={item.postedBy?._id!==state._id?"/profile/"+item.postedBy?._id:"/profile/"}>{item.postedBy?.name}</Link>{item.postedBy?._id==state._id
-                            &&<i className="material-icons" style={{float:"right"}} 
-                            onClick={() => { deletePost(item._id) }}>delete</i>
+                            <h5 style={{padding:"6px"}}><Link to={item.postedBy?._id !== state._id ? "/profile/" + item.postedBy?._id : "/profile/"}>{item.postedBy?.name}</Link>{item.postedBy?._id == state._id
+                                && <i className="material-icons" style={{ float: "right" }}
+                                    onClick={() => { deletePost(item._id) }}>delete</i>
                             }</h5>
                             <div className="card-image">
                                 <img src={item.photo} />
@@ -113,7 +113,7 @@ const Home = () => {
                             <div className="card-content">
                                 <i className="material-icons" style={{ color: "red" }}>favorite</i>
                                 {item.likes.includes(state._id)
-                                    ? 
+                                    ?
                                     <i className="material-icons" onClick={() => { unlikesPost(item._id) }}>thumb_up</i>
                                     :
                                     <i className="material-icons" onClick={() => { likesPost(item._id) }}>thumb_down</i>
@@ -122,15 +122,15 @@ const Home = () => {
                                 <h6>{item.title}</h6>
                                 <p>{item.body}</p>
                                 {
-                                    item.comments.map(record=>{
-                                        return <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedBy.name}</span>{record.text}</h6>
+                                    item.comments.map(record => {
+                                        return <h6 key={record._id}><span style={{ fontWeight: "500" }}>{record.postedBy.name}</span>{record.text}</h6>
                                     })
                                 }
-                                <form onSubmit={(e)=>{
+                                <form onSubmit={(e) => {
                                     e.preventDefault()
-                                    makeComment(e.target[0].value,item._id)
+                                    makeComment(e.target[0].value, item._id)
                                 }}>
-                                <input type="text" placeholder="add a comment" />
+                                    <input type="text" placeholder="add a comment" />
                                 </form>
                             </div>
                         </div>
