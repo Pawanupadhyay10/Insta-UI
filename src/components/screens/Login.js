@@ -43,7 +43,7 @@ const Login = () => {
         }).catch(err=>{
             console.log(err)
         })
-    }
+    }   
 
     return (
         <div className="Mycard">
@@ -55,13 +55,11 @@ const Login = () => {
                 <input type="password" placeholder="password" 
                 value={passward}
                 onChange={(e)=>setPassward(e.target.value)}/>
-                 
                 <button className="btn waves-effect waves-light #1565c0 blue darken-3 darken-1" onClick={()=>PostData()}>
                  Login
-                </button>
-               
+                </button>    
                 <h5><Link to="/signup">Don't have an account Signup please?</Link></h5>
-                
+                <h6><Link to="/reset">Forget password ?</Link></h6>
             </div>
         </div>
     )

@@ -43,3 +43,6 @@ font-family: 'Grand Hotel', cursive;
 .material-icons{
   cursor: pointer;
 }
+.collection-item{
+  width: 100%;
+}
