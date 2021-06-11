@@ -95,6 +95,7 @@ const Home = () => {
                    return item._id !==result._id
                })
                setData(newData)
+                window.location.reload()
             })
     }
     return (
