@@ -21,3 +21,18 @@ font-family: 'Grand Hotel', cursive;
   width: 30%;
   margin: 6px;
 }
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid rgb(8, 93, 252)!important;
+  box-shadow: 0 1px 0 0 rgb(8, 93, 252) !important;
+}
+/*home page*/
+.home-card{
+  max-width:500px;
+  height:max-content;
+  margin:26px auto ;
+
+}
+.material-icons:hover{
+  cursor:pointer;
+}
