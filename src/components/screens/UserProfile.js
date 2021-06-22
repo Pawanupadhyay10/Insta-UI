@@ -32,7 +32,7 @@ const UserProfile= () => {
              })
          }).then(res => res.json())
              .then(data => {
-                 //console.log(data)
+                 console.log(data)
                  dispatch({ type: "UPDATE", payload:{following:data.following,followers:data.followers}})
                  localStorage.setItem("user",JSON.stringify(data))
                  setProfile((prevState) =>{
@@ -59,7 +59,7 @@ const UserProfile= () => {
              })
          }).then(res => res.json())
              .then(data => {
-                 console.log(data)
+                 //console.log(data)
                  dispatch({ type: "UPDATE", payload:{following:data.following,followers:data.followers}})
                  localStorage.setItem("user",JSON.stringify(data))
                  setProfile((prevState) =>{
@@ -81,7 +81,7 @@ const UserProfile= () => {
                 <div style={{ maxWidth: '550px', margin: "0px auto" }}>
                     <div style={{
                         display: 'flex',
-                        justifyContent: 'center',
+                        justifyContent: 'space-around',
                         margin: "18px 0px",
                         borderBottom: "1px solid grey"
                     }}>
@@ -91,7 +91,7 @@ const UserProfile= () => {
                         </div>
                         <div>
                             <h4>{userProfile.user.name}</h4>
-                            <h4>{userProfile.user.email}</h4>
+                            <h5>{userProfile.user.email}</h5>
                             <div style={{ display: 'flex', justifyContent: 'space-between', width: "108%" }}>
                                 <h6>{userProfile.posts.length}</h6>
                                 <h6>{userProfile.user.followers.length}</h6>
@@ -121,8 +121,8 @@ const UserProfile= () => {
                         }
                     </div>
                 </div>
-        :<h2>loading...</h2>}
-        </>
+       :<h2>loading...</h2>}
+       </>
     )
 }
 
